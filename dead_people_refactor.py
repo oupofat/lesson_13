@@ -24,12 +24,12 @@ for student in harry_potter:
         dead_per_house[student.house] = 0
     if student.dead:
         dead_per_house[student.house] += 1
-
-house_with_most_dead = None
-highest_dead_count = 0
-for house, dead_count in dead_per_house.items():
-    if house_with_most_dead == None or dead_count > highest_dead_count:
-        house_with_most_dead = house
-        highest_dead_count = dead_count
-
-print("%s had the most dead people with %d." % (house_with_most_dead, highest_dead_count))
+def houses_with_the_most_dead(dead_per_house):
+    house_with_most_dead = None
+    highest_dead_count = 0
+    for house, dead_count in dead_per_house.items():
+        if house_with_most_dead == None or dead_count > highest_dead_count:
+            house_with_most_dead = house
+            highest_dead_count = dead_count
+    print("%s had the most dead people with %d." % (house_with_most_dead, highest_dead_count))
+houses_with_the_most_dead(dead_per_house)
