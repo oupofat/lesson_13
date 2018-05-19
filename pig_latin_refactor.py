@@ -16,6 +16,7 @@ for word in words:
         elif state == "collect-rest":
             pigword += letter
     pigword += first_consonants
+#possiable new function?
     if first_consonants == "":
         pigword += "y"
     pigword += "ay"
