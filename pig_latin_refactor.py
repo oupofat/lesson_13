@@ -1,5 +1,5 @@
-def pig_collect_consonants(word):
-    
+#collects the consonants and then returns the pigword
+def pig_collect_consonants(word):    
     pigword = ""
     state = "collect-consonants"
     first_consonants = ""
@@ -16,14 +16,16 @@ def pig_collect_consonants(word):
     return(pigword)
     
 #takes the word from above and adds the "y" and "ay".
+#then returns the new word to below to be appended.
 def change_to_pig_latin(word):
     new_word = pig_collect_consonants(word)
     if new_word == "":
         new_word+="y"
     new_word += "ay"
     return (new_word)
-
-#This function breaks down and rejoins the phrase.    
+#splits the word.
+#This function breaks down and rejoins the phrase.   
+#returns the final phrase to be printed out
 def pig_latin_phrase(phrase):
     words = phrase.split(" ")
     result_words = []
@@ -33,7 +35,6 @@ def pig_latin_phrase(phrase):
     final_phrase = " ".join(result_words)
     return (final_phrase)
         
-phrase = "this is it"
-
-
-print (pig_latin_phrase(phrase))
+phrase = input("input your words here!")
+#prints out the pig latin phrase.
+print ("What does this even mean:",pig_latin_phrase(phrase))

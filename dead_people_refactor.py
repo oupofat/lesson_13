@@ -17,19 +17,29 @@ harry_potter = [
     Record(name = "Cho Chang", house = "Ravenclaw", dead = True),
     Record(name = "Moaning Myrtle", house = "Ravenclaw", dead = True)
 ]
-
-dead_per_house = {}
-for student in harry_potter:
-    if student.house not in dead_per_house:
-        dead_per_house[student.house] = 0
-    if student.dead:
-        dead_per_house[student.house] += 1
-def houses_with_the_most_dead(dead_per_house):
+#added a function to the dictrionary to get the houses and the dead count.
+def house_and_dead_count(harry_potter):
+    dead_per_house = {}
+    for student in harry_potter:
+        if student.house not in dead_per_house:
+            dead_per_house[student.house] = 0
+        if student.dead:
+            dead_per_house[student.house] += 1
+    print (dead_per_house)  
+    return(dead_per_house)
+#added another function to get the houses and dead count
+#this code goes through the houses and the count making a total of the highest one
+def highest_dead_count(harry_potter):
+#calls 
+    houses = house_and_dead_count(harry_potter)
     house_with_most_dead = None
     highest_dead_count = 0
-    for house, dead_count in dead_per_house.items():
+    for house, dead_count in houses.items():
         if house_with_most_dead == None or dead_count > highest_dead_count:
             house_with_most_dead = house
             highest_dead_count = dead_count
-    print("%s had the most dead people with %d." % (house_with_most_dead, highest_dead_count))
-houses_with_the_most_dead(dead_per_house)
+    return(house_with_most_dead, highest_dead_count)
+#this calls the function to and renames the called function
+house_of_the_dead=highest_dead_count(harry_potter)
+#prints the function highest dead count with a Iterating Dictionary
+print("%s had the most dead people with %d." % (house_of_the_dead[0], house_of_the_dead[1]))
